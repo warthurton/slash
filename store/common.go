@@ -1,7 +1,7 @@
 package store
 
 import (
-	storepb "github.com/yourselfhosted/slash/proto/gen/store"
+	storepb "github.com/warthurton/slash/proto/gen/store"
 )
 
 func ConvertRowStatusStringToStorepb(status string) storepb.RowStatus {
