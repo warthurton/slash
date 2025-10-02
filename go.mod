@@ -4,9 +4,9 @@ go 1.24.0
 
 toolchain go1.24.2
 
-require github.com/google/uuid v1.6.0
-
 require (
+	github.com/google/uuid v1.6.0
+
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
@@ -16,20 +16,14 @@ require (
 	golang.org/x/sys v0.36.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
 	golang.org/x/time v0.11.0 // indirect
-)
 
-require (
 	github.com/labstack/echo/v4 v4.13.4
 	github.com/labstack/gommon v0.4.2 // indirect
-)
 
-require (
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.21.0
 	github.com/stretchr/testify v1.11.1
-)
 
-require (
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/desertbit/timer v1.0.1 // indirect
@@ -55,9 +49,7 @@ require (
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
 	nhooyr.io/websocket v1.8.17 // indirect
-)
 
-require (
 	github.com/golang-jwt/jwt/v5 v5.2.2
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.2
 	github.com/improbable-eng/grpc-web v0.15.0
@@ -74,4 +66,10 @@ require (
 	google.golang.org/grpc v1.75.0
 	google.golang.org/protobuf v1.36.7
 	modernc.org/sqlite v1.38.2
+
+	github.com/warthurton/slash/server/common v1.0.0
+	github.com/warthurton/slash/plugin/idp v1.0.0
+	github.com/warthurton/slash/server/runner/license v1.0.0
+	github.com/warthurton/slash/server/runner/version v1.0.0
+	github.com/warthurton/slash/plugin/idp/oauth2 v1.0.0
 )
