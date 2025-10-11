@@ -9,7 +9,7 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "gen/api/v1";
+option go_package = "github.com/warthurton/slash/proto/gen/api/v1";
 
 service CollectionService {
   // ListCollections returns a list of collections.

@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/yourselfhosted/slash/store"
+	"github.com/warthurton/slash/store"
 )
 
 func (d *DB) CreateActivity(ctx context.Context, create *store.Activity) (*store.Activity, error) {

@@ -8,7 +8,7 @@ import "google/api/annotations.proto";
 import "google/api/client.proto";
 import "google/protobuf/field_mask.proto";
 
-option go_package = "gen/api/v1";
+option go_package = "github.com/warthurton/slash/proto/gen/api/v1";
 
 service WorkspaceService {
   rpc GetWorkspaceProfile(GetWorkspaceProfileRequest) returns (WorkspaceProfile) {

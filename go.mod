@@ -1,4 +1,4 @@
-module github.com/yourselfhosted/slash
+module github.com/warthurton/slash
 
 go 1.24.0
 
