@@ -12,13 +12,13 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/yourselfhosted/slash/internal/util"
-	"github.com/yourselfhosted/slash/plugin/idp"
-	"github.com/yourselfhosted/slash/plugin/idp/oauth2"
-	v1pb "github.com/yourselfhosted/slash/proto/gen/api/v1"
-	storepb "github.com/yourselfhosted/slash/proto/gen/store"
-	"github.com/yourselfhosted/slash/server/service/license"
-	"github.com/yourselfhosted/slash/store"
+	"github.com/warthurton/slash/internal/util"
+	"github.com/warthurton/slash/plugin/idp"
+	"github.com/warthurton/slash/plugin/idp/oauth2"
+	v1pb "github.com/warthurton/slash/proto/gen/api/v1"
+	storepb "github.com/warthurton/slash/proto/gen/store"
+	"github.com/warthurton/slash/server/service/license"
+	"github.com/warthurton/slash/store"
 )
 
 const (

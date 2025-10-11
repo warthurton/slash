@@ -3,9 +3,9 @@ package v1
 import (
 	"context"
 
-	v1pb "github.com/yourselfhosted/slash/proto/gen/api/v1"
-	storepb "github.com/yourselfhosted/slash/proto/gen/store"
-	"github.com/yourselfhosted/slash/store"
+	v1pb "github.com/warthurton/slash/proto/gen/api/v1"
+	storepb "github.com/warthurton/slash/proto/gen/store"
+	"github.com/warthurton/slash/store"
 )
 
 func getCurrentUser(ctx context.Context, s *store.Store) (*store.User, error) {

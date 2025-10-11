@@ -1,5 +1,5 @@
 # Build frontend dist.
-FROM node:18-alpine AS frontend
+FROM node:22-alpine AS frontend
 WORKDIR /frontend-build
 
 COPY . .
@@ -11,7 +11,7 @@ RUN corepack enable && pnpm i --frozen-lockfile
 RUN pnpm build
 
 # Build backend exec file.
-FROM golang:1.23-alpine AS backend
+FROM golang:1.24-alpine AS backend
 WORKDIR /backend-build
 
 COPY . .

@@ -4,7 +4,7 @@ package slash.store;
 
 import "store/common.proto";
 
-option go_package = "gen/store";
+option go_package = "github.com/warthurton/slash/proto/gen/store";
 
 message Collection {
   int32 id = 1;

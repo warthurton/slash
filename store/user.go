@@ -3,7 +3,7 @@ package store
 import (
 	"context"
 
-	storepb "github.com/yourselfhosted/slash/proto/gen/store"
+	storepb "github.com/warthurton/slash/proto/gen/store"
 )
 
 // Role is the type of a role.
