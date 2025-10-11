@@ -9,8 +9,8 @@ import (
 	"github.com/lib/pq"
 	"github.com/pkg/errors"
 
-	storepb "github.com/warthurton/slash/proto/gen/store"
-	"github.com/warthurton/slash/store"
+	storepb "github.com/yourselfhosted/slash/proto/gen/store"
+	"github.com/yourselfhosted/slash/store"
 )
 
 func (d *DB) CreateCollection(ctx context.Context, create *storepb.Collection) (*storepb.Collection, error) {

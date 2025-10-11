@@ -7,8 +7,8 @@ import (
 
 	"google.golang.org/protobuf/encoding/protojson"
 
-	storepb "github.com/warthurton/slash/proto/gen/store"
-	"github.com/warthurton/slash/store"
+	storepb "github.com/yourselfhosted/slash/proto/gen/store"
+	"github.com/yourselfhosted/slash/store"
 )
 
 func (d *DB) UpsertUserSetting(ctx context.Context, upsert *storepb.UserSetting) (*storepb.UserSetting, error) {
