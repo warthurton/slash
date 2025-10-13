@@ -38,7 +38,8 @@ const useWorkspaceStore = create<WorkspaceState>()((set, get) => ({
   },
   getSubscription: () => Subscription.fromPartial(get().profile.subscription || {}),
   checkFeatureAvailable: (feature: FeatureType): boolean => {
-    return get().profile.subscription?.features.includes(feature) || false;
+    // Always return true to disable license checks
+    return true;
   },
 }));
 
