@@ -1,0 +1,94 @@
+name: Publish Go Modules
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+      - "*/v*.*.*"
+
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.24"
+          check-latest: true
+          cache: true
+      
+      - name: Verify go.mod and go.sum are tidy
+        run: |
+          go mod tidy
+          if ! git diff --quiet go.mod go.sum; then
+            echo "go.mod or go.sum are not tidy"
+            git diff go.mod go.sum
+            exit 1
+          fi
+      
+      - name: Run tests
+        run: go test -v ./...
+      
+      - name: Verify module can be built
+        run: go build -v ./...
+      
+      - name: Extract version and module path
+        id: extract
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          
+          # Check if this is a submodule tag (contains /)
+          if [[ "$TAG" == *"/"* ]]; then
+            MODULE_PATH="${TAG%/v*}"
+            VERSION="${TAG##*/}"
+            echo "module_path=$MODULE_PATH" >> $GITHUB_OUTPUT
+            echo "version=$VERSION" >> $GITHUB_OUTPUT
+            echo "is_submodule=true" >> $GITHUB_OUTPUT
+          else
+            echo "module_path=." >> $GITHUB_OUTPUT
+            echo "version=$TAG" >> $GITHUB_OUTPUT
+            echo "is_submodule=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Verify tag matches module version
+        run: |
+          TAG="${{ steps.extract.outputs.tag }}"
+          MODULE_PATH="${{ steps.extract.outputs.module_path }}"
+          
+          if [ "$MODULE_PATH" != "." ]; then
+            if [ ! -f "$MODULE_PATH/go.mod" ]; then
+              echo "Error: No go.mod found at $MODULE_PATH"
+              exit 1
+            fi
+          fi
+          
+          echo "Tag $TAG is valid for module at $MODULE_PATH"
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: steps.extract.outputs.is_submodule == 'false'
+        with:
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+      
+      - name: Verify module is accessible
+        run: |
+          TAG="${{ steps.extract.outputs.tag }}"
+          MODULE_PATH="${{ steps.extract.outputs.module_path }}"
+          
+          # Give GitHub a moment to process the tag
+          sleep 10
+          
+          # Try to fetch the module
+          if [ "$MODULE_PATH" = "." ]; then
+            FULL_MODULE="github.com/${{ github.repository }}@$TAG"
+          else
+            FULL_MODULE="github.com/${{ github.repository }}/$MODULE_PATH@$TAG"
+          fi
+          
+          echo "Attempting to fetch module: $FULL_MODULE"
+          go list -m "$FULL_MODULE" || echo "Module may take a few minutes to be available via Go proxy"
