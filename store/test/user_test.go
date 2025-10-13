@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/yourselfhosted/slash/store"
+	"github.com/warthurton/slash/store"
 )
 
 func TestUserStore(t *testing.T) {
