@@ -3,7 +3,6 @@ package license
 import (
 	"context"
 	_ "embed"
-	"slices"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -111,8 +110,9 @@ func (s *LicenseService) GetSubscription() *v1pb.Subscription {
 	return s.cachedSubscription
 }
 
-func (s *LicenseService) IsFeatureEnabled(feature FeatureType) bool {
-	return slices.Contains(s.cachedSubscription.Features, feature.String())
+func (*LicenseService) IsFeatureEnabled(_ FeatureType) bool {
+	// Always return true to disable license checks.
+	return true
 }
 
 type ValidateResult struct {
@@ -211,11 +211,20 @@ func parseLicenseKey(licenseKey string) (*Claims, error) {
 }
 
 func getSubscriptionForFreePlan() *v1pb.Subscription {
+	// Return unlimited features to disable license restrictions.
+	allFeatures := []string{
+		FeatureTypeUnlimitedAccounts.String(),
+		FeatureTypeUnlimitedShortcuts.String(),
+		FeatureTypeUnlimitedCollections.String(),
+		FeatureTypeCustomeBranding.String(),
+		FeatureTypeSSO.String(),
+		FeatureTypeAdvancedAnalytics.String(),
+	}
 	return &v1pb.Subscription{
 		Plan:             v1pb.PlanType_FREE,
-		Seats:            5,
-		ShortcutsLimit:   100,
-		CollectionsLimit: 5,
-		Features:         []string{},
+		Seats:            999999,
+		ShortcutsLimit:   999999,
+		CollectionsLimit: 999999,
+		Features:         allFeatures,
 	}
 }

@@ -37,8 +37,10 @@ const useWorkspaceStore = create<WorkspaceState>()((set, get) => ({
     return workspaceSetting;
   },
   getSubscription: () => Subscription.fromPartial(get().profile.subscription || {}),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   checkFeatureAvailable: (feature: FeatureType): boolean => {
-    return get().profile.subscription?.features.includes(feature) || false;
+    // Always return true to disable license checks.
+    return true;
   },
 }));
 
