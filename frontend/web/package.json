@@ -52,7 +52,7 @@
     "prettier": "^3.6.2",
     "protobufjs": "^7.5.3",
     "typescript": "^5.9.2",
-    "vite": "^6.3.6"
+    "vite": "^6.4.1"
   },
   "resolutions": {
     "csstype": "3.1.2"
