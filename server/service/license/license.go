@@ -110,7 +110,7 @@ func (s *LicenseService) GetSubscription() *v1pb.Subscription {
 	return s.cachedSubscription
 }
 
-func (s *LicenseService) IsFeatureEnabled(feature FeatureType) bool {
+func (_ *LicenseService) IsFeatureEnabled(_ FeatureType) bool {
 	// Always return true to disable license checks
 	return true
 }
