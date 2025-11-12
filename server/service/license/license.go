@@ -111,7 +111,7 @@ func (s *LicenseService) GetSubscription() *v1pb.Subscription {
 }
 
 func (_ *LicenseService) IsFeatureEnabled(_ FeatureType) bool {
-	// Always return true to disable license checks
+	// Always return true to disable license checks.
 	return true
 }
 
@@ -211,7 +211,7 @@ func parseLicenseKey(licenseKey string) (*Claims, error) {
 }
 
 func getSubscriptionForFreePlan() *v1pb.Subscription {
-	// Return unlimited features to disable license restrictions
+	// Return unlimited features to disable license restrictions.
 	allFeatures := []string{
 		FeatureTypeUnlimitedAccounts.String(),
 		FeatureTypeUnlimitedShortcuts.String(),
