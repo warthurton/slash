@@ -42,8 +42,8 @@ importers:
         specifier: ^0.469.0
         version: 0.469.0(react@18.3.1)
       nice-grpc-web:
-        specifier: ^3.3.7
-        version: 3.3.7(ws@8.17.0)
+        specifier: ^3.3.9
+        version: 3.3.9(ws@8.17.0)
       qrcode.react:
         specifier: ^4.2.0
         version: 4.2.0(react@18.3.1)
@@ -1924,8 +1924,8 @@ packages:
   nice-grpc-common@2.0.2:
     resolution: {integrity: sha512-7RNWbls5kAL1QVUOXvBsv1uO0wPQK3lHv+cY1gwkTzirnG1Nop4cBJZubpgziNbaVc/bl9QJcyvsf/NQxa3rjQ==}
 
-  nice-grpc-web@3.3.7:
-    resolution: {integrity: sha512-9RyOGxmPm5rCLizn2uNFSSnlBPU/2n1i8inaNSAT52QAcOITKvCTFmOUnU+1CAJrKlxiGV64KFfcxJG77JDV5w==}
+  nice-grpc-web@3.3.9:
+    resolution: {integrity: sha512-CiCQLdLTux9D4try8XlHW9tHIP/uLB+aciNKErDNLUM6kzhPFaVh8q+oTkoVGOjxOacEzlOwQRRjwQETAx5lVw==}
 
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
@@ -4389,7 +4389,7 @@ snapshots:
     dependencies:
       ts-error: 1.0.6
 
-  nice-grpc-web@3.3.7(ws@8.17.0):
+  nice-grpc-web@3.3.9(ws@8.17.0):
     dependencies:
       abort-controller-x: 0.4.3
       isomorphic-ws: 5.0.0(ws@8.17.0)
